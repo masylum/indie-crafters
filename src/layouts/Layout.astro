@@ -2,7 +2,10 @@
 interface Props {
     title: string
 }
-import '@fontsource-variable/inter'
+import '@fontsource/instrument-serif'
+import '@fontsource-variable/literata/standard.css'
+import '@fontsource-variable/literata/standard-italic.css'
+
 import { getImage } from 'astro:assets'
 import background from './background.png'
 const optimizedBackgroundImage = await getImage({
@@ -59,7 +62,7 @@ const { title } = Astro.props
     }
 
     html {
-        font-family: 'Inter Variable', system-ui, sans-serif;
+        font-family: 'Literata Variable', system-ui, serif;
         background: linear-gradient(
             to bottom,
             var(--turq1) 0%,
