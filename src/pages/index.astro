@@ -4,7 +4,7 @@ import { getImage } from 'astro:assets'
 import tree from './trees.png'
 import flare from './flare.png'
 
-const widths = [240, 400, 700]
+const widths = [500, 600, 700]
 function getOptimizedImage(value: any) {
     return `url(${value.url})`
 }
@@ -70,7 +70,9 @@ const flares = optimizedFlareImage.srcSet.values.map(getOptimizedImage)
                 Built with love by <a
                     href="https://twitter.com/masylum"
                     target="_blank">@masylum</a
-                >. Don't take it too seriously.
+                >.
+                <br />
+                Don't take it too seriously.
             </p>
         </section>
     </section>
@@ -133,16 +135,28 @@ const flares = optimizedFlareImage.srcSet.values.map(getOptimizedImage)
                 top: 0;
                 left: 0;
                 right: 0;
-                background: var(--tree2);
+                background-image: var(--tree2);
                 background-position: bottom;
                 background-repeat: no-repeat;
                 background-size: contain;
                 mix-blend-mode: overlay;
             }
+
+            @media (max-width: 500px) {
+                &:before {
+                    background-image: var(--tree1);
+                }
+            }
+
+            @media (max-width: 400px) {
+                &:before {
+                    background-image: var(--tree0);
+                }
+            }
         }
 
         .footer {
-            padding: 1rem;
+            padding: 1rem 2rem;
             border-top: 1px solid var(--turq5);
             background: linear-gradient(
                 oklch(from var(--turq6) l c h / 0.5),
@@ -152,6 +166,14 @@ const flares = optimizedFlareImage.srcSet.values.map(getOptimizedImage)
             width: 100%;
             backdrop-filter: blur(3px);
             -webkit-backdrop-filter: blur(3px);
+
+            @media (max-width: 500px) {
+                padding: 0.8rem 1.5rem;
+            }
+
+            @media (max-width: 400px) {
+                padding: 0.5rem 1rem;
+            }
         }
 
         .footer p {
@@ -174,11 +196,23 @@ const flares = optimizedFlareImage.srcSet.values.map(getOptimizedImage)
                 top: 0;
                 left: 0;
                 right: 0;
-                background: var(--flare2);
+                background-image: var(--flare2);
                 background-position: bottom;
                 background-repeat: no-repeat;
                 background-size: contain;
                 mix-blend-mode: screen;
+            }
+
+            @media (max-width: 500px) {
+                &:before {
+                    background-image: var(--flare1);
+                }
+            }
+
+            @media (max-width: 400px) {
+                &:before {
+                    background-image: var(--flare0);
+                }
             }
         }
 
